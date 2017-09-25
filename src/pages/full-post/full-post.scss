@@ -34,23 +34,23 @@ page-full-post {
         font-weight: 500;
         text-transform: uppercase;
         color: #fff;
-        background-color: #01579b
+        background-color: #201344;
     }
     .post-title{
         padding: 25px 20px;
         text-align: left;
         color: #fff;
-        font-weight: 300;
+        font-weight: 200;
         font-size: 1.6em;
-        background-color: #015ba2;
+        background-color: #201344;;
         margin: 0;
-
+        line-height: 1.5;
     }
     .row-icons{
         margin: 0 auto;
     }
     .row-icons .icon {
-        color: #015ba2;
+        color: #fff;
         font-size: 1.9em;
         margin: 0 10px;
     }
@@ -58,7 +58,13 @@ page-full-post {
         background-color: #F1EEEE;
         padding: 10px;
     }
+    .row-grid{
+        background-color: #201344;;
+    }
     .author-data{
         padding-top: 15px;
+    }
+    .autor-name{
+        font-weight: bold;
     }
 }
