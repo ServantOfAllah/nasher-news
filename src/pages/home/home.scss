@@ -1,3 +1,18 @@
 page-home {
-
+    .cat_card{
+        //background-color: #CACACA;
+        margin: 0px 0px 1px 0px;
+        width: 100%;
+        padding: 50px 15px;
+        text-align: center;
+    }
+    .cat-name{
+        font-weight: 600;
+        letter-spacing: 2px;
+        padding-bottom: 5px;
+        color: #01579b;
+    }
+    .post-count{
+        font-weight: 400;
+    }
 }

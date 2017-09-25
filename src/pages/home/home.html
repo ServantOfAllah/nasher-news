@@ -1,18 +1,22 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+  <ion-navbar color="navbar">
+    <ion-buttons end>
+      <button ion-button menuToggle>
+      <ion-icon name="menu" right></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    </ion-buttons>
+    <ion-title>Nasher News</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content class="animated bounceInUp">
+  <ion-card *ngFor="let cat of categories" class="cat_card" (click)='navToCat(cat)'>
+    <ion-card-content>
+      <div class="home-bg">
+        <h2 class="cat-name" [innerHTML]="cat.name"></h2>
+        <p class="post-count">{{cat.count}} Posts</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

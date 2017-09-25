@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar color="navbar">
+    <ion-buttons end>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Posts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="animated bounceInUp">
+  <ion-card class="post_card" *ngFor="let post of cat_post" (click)="openModal(post)">
+    <img class="post-img" [src]="post.better_featured_image.media_details.sizes.medium.source_url" />
+    <div class="dark_bg"></div>
+    <h2 class="card-title" [innerHTML]="post.title.rendered"></h2>
+  </ion-card>
+
+</ion-content>
