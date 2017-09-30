@@ -1,25 +1,96 @@
 page-categories {
     .post_card{
-        margin: 0px 0px 1px 0px;
+        //margin-bottom: 25px;
+        // width: 100%;
+        // position: relative;
+        text-align: left;
+        padding: 0!important;
+        background-color: #FDFDFD;
+    }
+
+    .ion-content{
+        background-color: #000000;
+    }
+    .card-content{
+        line-height: 2;
+        padding: 10px 10px 35px 10px;
+    }
+    .card-title{
+        color: #201344;
+        font-weight: bold;
+    }
+    .read-more-btn{
+        margin: 15px 20px;
+        float: right;
+    }
+    .slide-img{
+        width: 100%;
+    }
+    .swiper-slide img{
+        width: 100%;
+    }
+    hr{
+        margin:30px;
+    }
+
+    .slide-title{
+        text-transform: uppercase;
+        line-height: 1.5 !important;
+        color: #fff !important;
+        font-weight: bold !important;
+    }
+
+    .card-slide{
+        margin: 0;
         width: 100%;
         position: relative;
-        text-align: center;
+        margin-bottom: 40px;
+        background-color: #201344;
     }
-    .card-title {
-        position: absolute;
-        top: 40%;
-        font-size: 1.4em;
-        width: 100%;
-        padding: 0 20px;
-        font-weight: 300;
-        color: #EBEBEB;
-        line-height: 1.5;
-      }
       .dark_bg{
         background-color:rgba(0, 0, 0, 0.8);
         position: absolute;
         top: 0;
         width: 100%;
         height: 100%;
+    }
+
+    .about-content-card{
+        margin-bottom: 0;
+    }
+    .modal-card{
+        //margin-bottom: 0;
+    }
+    .follow-us{
+        color: #fff;
+        text-align: center;
+    }
+
+    .row-icons{
+        margin: 0 auto;
+    }
+    .row-icons .icon {
+        color: #fff;
+        font-size: 1.9em;
+        margin: 0 10px;
+    }
+    .row-grid{
+        background-color: #201344;
+    }
+    .card p {
+        margin: 0 0 2px;
+        font-size: 1.4rem;
+        font-weight: normal;
+        line-height: 1.5;
+        color: #222;
+        line-height: 2;
+    }
+    .about-title{
+        color: #201344;
+        font-weight: bold;
+        font-size: 1.7em;
+    }
+    .title{
+        color: #fff;
     }
 }

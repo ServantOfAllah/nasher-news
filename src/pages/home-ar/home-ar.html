@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar color="navbar">
+      <ion-buttons end>
+        <button ion-button (click)="changetoEN()">
+          <ion-label>EN</ion-label>
+        </button>
+      </ion-buttons>
+      <ion-buttons end>
+        <button ion-button menuToggle>
+          <ion-icon name="menu" right></ion-icon>
+        </button>
+      </ion-buttons>
+  
+      <ion-title>Nasher News</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content class="animated bounceInUp">
+  
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content refreshingSpinner="circles"></ion-refresher-content>
+    </ion-refresher>
+  
+    <div *ngIf="!connectionStateVal; else connectErr">
+  
+      <ion-card no-padding class="card-slide">
+        <ion-slides #imgSlides loop="true" pager>
+          <ion-slide *ngFor="let image of all_post">
+            <img [src]="image.better_featured_image.media_details.sizes.medium.source_url" />
+            <p class="card-content slide-title" [innerHTML]="image.title.rendered"></p>
+          </ion-slide>
+        </ion-slides>
+      </ion-card>
+  
+      <ion-card *ngFor="let cat of categories" class="cat_card" (click)='navToCat(cat)'>
+        <ion-card-content>
+          <div class="home-bg">
+            <h2 class="cat-name" [innerHTML]="cat.name"></h2>
+            <p class="post-count">{{cat.count}} Posts</p>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  
+    <ng-template #connectErr>
+      <div class="int-err">
+        <img src="assets/img/no_internet.png" />
+        <h2 color="navbar">OOPS! NO INTERNET.</h2>
+        <p>Please check your network connection</p>
+        <button ion-button outline (click)="reloadPage()"> TRY AGAIN </button>
+      </div>
+    </ng-template>
+  
+  </ion-content>

@@ -1,16 +1,18 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Platform, ToastController, Slides } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, ToastController, Slides } from 'ionic-angular';
 import { HttpModule, Http } from '@angular/http';
 import { Network } from '@ionic-native/network';
 import { Subscription } from 'rxjs/Subscription';
 import { TranslateService } from '@ngx-translate/core';
+import { HomePage } from '../home/home'
 import 'rxjs/add/operator/map';
 
+@IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-home-ar',
+  templateUrl: 'home-ar.html',
 })
-export class HomePage {
+export class HomeArPage {
 
   @ViewChild('imgSlides') imgSlide: Slides;
 
@@ -35,13 +37,13 @@ export class HomePage {
 
   constructor(private translateService: TranslateService, private network: Network, private toast: ToastController, private platform: Platform, private http: Http, public navCtrl: NavController, private navParams: NavParams) {
 
-    this.http.get(this.url).map(res => res.json()).subscribe(data => {
+    this.http.get(this.url_ar).map(res => res.json()).subscribe(data => {
       this.categories = data;
       console.log("specific post ", this.categories);
       console.log(typeof (this.categories));
     });
 
-    this.http.get(this.all_postUrl).map(res => res.json()).subscribe(data => {
+    this.http.get(this.all_postUrl_ar).map(res => res.json()).subscribe(data => {
       this.all_post = data;
       console.log("All post ", this.all_post);
     });
@@ -55,11 +57,9 @@ export class HomePage {
 
   }
 
-  changetoAR(){
-    this.navCtrl.setRoot('HomeArPage');
+  changetoEN(){
+    this.navCtrl.setRoot(HomePage);
   }
-
-
 
   displayNetworkUpdate(connectionState: string): string {
     let networkType = this.network.type
@@ -105,13 +105,13 @@ export class HomePage {
     this.disconnected.unsubscribe();
   }
 
-  reloadPage(){
-    this.displayNetworkUpdate(this.connectionStateVal);
-    this.navCtrl.setRoot(HomePage);
-  }
+  // reloadPage(){
+  //   this.displayNetworkUpdate(this.connectionStateVal);
+  //   this.navCtrl.setRoot(HomeArPage);
+  // }
 
   navToCat(thisCat) {
-    const pushing = this.navCtrl.push('CategoriesPage', { "cat": thisCat });
+    const pushing = this.navCtrl.push('CategoriesArPage', { "cat": thisCat });
     console.log("idparams", pushing)
   }
 
@@ -122,20 +122,9 @@ export class HomePage {
     setTimeout(() => {
       console.log('Async operation has ended');
       this.displayNetworkUpdate(this.connectionStateVal);
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(HomeArPage);
       refresher.complete();
     }, 2000);
   }
 
-  translateToSpanish(){
-    this.translateService.use('es');
-    console.log('spano');
-  }
-
-  translateToEnglish(){
-    this.translateService.use('en');
-    console.log('eng');
-  }
-
 }
-

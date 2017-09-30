@@ -5,10 +5,10 @@ import {Http } from '@angular/http';
 
 @IonicPage()
 @Component({
-  selector: 'page-categories',
-  templateUrl: 'categories.html',
+  selector: 'page-categories-ar',
+  templateUrl: 'categories-ar.html',
 })
-export class CategoriesPage {
+export class CategoriesArPage {
   
   cat_postUrl: string = "http://nashernews.staging.wpengine.com/wp-json/wp/v2/posts?categories="; 
 
@@ -32,7 +32,7 @@ export class CategoriesPage {
   }
 
   getCatPost(){
-    this.http.get(this.cat_postUrl_ar+this.ids).map(res => res.json()).subscribe(data => {
+    this.http.get(this.cat_postUrl_ar+this.ids+'&lang=ar').map(res => res.json()).subscribe(data => {
       this.cat_post = data;
       console.log(this.cat_post);
       console.log(typeof(this.cat_post));
@@ -53,11 +53,3 @@ export class CategoriesPage {
   }
 
 }
-
-
-// @IonicPage()
-// @Component({
-//   selector: 'page-categories-ar',
-//   templateUrl: 'categories-ar.html',
-// })
-// export class CategoriesArPage

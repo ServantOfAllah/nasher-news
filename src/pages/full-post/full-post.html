@@ -1,18 +1,20 @@
 <ion-header>
+
   <ion-navbar color="navbar">
-      <ion-buttons end>
-          <ion-buttons class="modal-close animated bounceInUp" end>
-            <button ion-button icon-only (click)="closeModal()" class="modal-btn"> <ion-icon name='close'></ion-icon> </button>
-          </ion-buttons>
-        </ion-buttons>
+    <ion-buttons end>
+      <ion-buttons class="modal-close animated bounceInUp" end>
+        <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+            </button>
+        <!-- <button ion-button icon-only (click)="closeModal()" class="modal-btn"> <ion-icon name='close'></ion-icon> </button> -->
+      </ion-buttons>
+    </ion-buttons>
     <ion-title>Nasher News</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding class="main-content">
   <ion-card class="modal-card" *ngFor="let post of posts">
-    
-
     <h2 class="post-title" [innerHTML]="post.title.rendered"></h2>
     <img class="post-img" [src]="post.better_featured_image.source_url" />
 
@@ -24,10 +26,9 @@
         <h2 class="autor-name">{{author.slug}}</h2>
       </ion-item>
     </ion-list>
-
     <div class="contents animated lightSpeedIn" [innerHTML]="post.content.rendered"></div>
   </ion-card>
-  
+
   <ion-card class="modal-card">
     <ion-grid class="row-grid">
       <ion-row class="row-icons">

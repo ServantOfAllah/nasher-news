@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar color="navbar">
+      <ion-buttons end>
+        <button ion-button menuToggle>
+        <ion-icon name="menu" right></ion-icon>
+      </button>
+      </ion-buttons>
+      <ion-title>Terms and Conditions</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+  <ion-content>
+      <ion-card class="about-content-card" *ngFor="let terms of termsData">
+        <ion-card-header>
+          <h2 class="about-title" [innerHTML] = "terms.title.rendered" ></h2>
+        </ion-card-header>
+        <ion-card-content>
+          <p class="about-content" [innerHTML] = "terms.content.rendered"></p>
+        </ion-card-content>
+      </ion-card>
+  
+    <ion-card class="modal-card">
+      <ion-grid class="row-grid">
+        <ion-row class="row-icons">
+          <ion-col>
+            <ion-icon name="logo-facebook" color="primary"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="logo-twitter" color="primary"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="logo-instagram" color="primary"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="logo-linkedin" color="primary"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  
+  </ion-content>
+

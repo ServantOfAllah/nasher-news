@@ -1,19 +1,55 @@
 <ion-menu [content]="content" persistent=true swipeEnabled=true>
   <ion-header>
-    <ion-toolbar color="navbar">
+    <ion-toolbar color="logo">
       <ion-title></ion-title>
       <div class="side-menu-logo">
-        <img src="assets/img/logo.png">
+        <img class="logo_img" src="assets/img/logo.jpg">
       </div>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
+
+    <div *ngIf="!isLangToggle; else changeLang">
+      <ion-list>
+        <ion-item no-lines menuClose ion-item>
+          <ion-label>Arabic</ion-label>
+          <ion-toggle [(ngModel)]="language" (ionChange)="changeLangAR()"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list-header class="list_header">
+        CATEGORIES
+      </ion-list-header>
+      <ion-item no-lines class="cat-item" menuClose ion-item *ngFor="let cat of categories" (click)="navToCat(cat)">
+        <p [innerHTML]="cat.name"></p>
+      </ion-item>
+      <hr>
+      <ion-item no-lines class="cat-item" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <p>{{p.title}}</p>
+      </ion-item>
+
+    </div>
+
+    <ng-template #changeLang>
+      <ion-list class='ion-list-ar'>
+        <ion-item no-lines>
+          <ion-label>Arabic</ion-label>
+          <ion-toggle [(ngModel)]="language" (ionChange)="changeLangEN()" menuClose></ion-toggle>
+        </ion-item>
+        <ion-list-header class="list_header">
+          الاقسام
+        </ion-list-header>
+        <ion-item no-lines class="cat-item ion-list-ar" menuClose ion-item *ngFor="let cat of categories_ar" (click)="navToCatAR(cat)">
+          <p [innerHTML]="cat.name"></p>
+        </ion-item>
+        <hr>
+        <ion-item no-lines class="cat-item ion-list-ar" menuClose ion-item *ngFor="let p of pages_ar" (click)="openPage(p)">
+          <p>{{p.title}}</p>
+        </ion-item>
+
+      </ion-list>
+    </ng-template>
+
   </ion-content>
 
 </ion-menu>
