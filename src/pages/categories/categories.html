@@ -5,56 +5,56 @@
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title class="title" [innerHTML] = "catName"></ion-title>
+    <ion-title class="title" [innerHTML]="catName"></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="animated bounceInUp">
 
-  <ion-card no-padding class="card-slide">
-    <ion-slides #imgSlides loop="true" pager>
-      <ion-slide *ngFor="let image of cat_post">
-        <img [src] = "image.better_featured_image.media_details.sizes.medium.source_url" />
-        <p class="card-content slide-title" [innerHTML] = "image.title.rendered"></p>
-      </ion-slide>
-    </ion-slides>
-  </ion-card>
+  <div *ngIf="!isPostEmpty; else showEmptyPost">
+    <ion-card no-padding class="card-slide">
+      <ion-slides #imgSlides loop="true" pager>
+        <ion-slide *ngFor="let image of cat_post" (click)="postSlider(image)">
+          <img [src]="image.better_featured_image.media_details.sizes.medium.source_url" />
+          <p class="card-content slide-title" [innerHTML]="image.title.rendered"></p>
+        </ion-slide>
+      </ion-slides>
+    </ion-card>
+    
+    <ion-card padding class="post_card" *ngFor="let post of cat_post" (click)="openModal(post)">
+      <img class="slide-img" [src]="post.better_featured_image.media_details.sizes.medium_large.source_url" />
+      <ion-card-content>
+        <ion-card-title>
+          <h2 class="card-title" [innerHTML]="post.title.rendered"></h2>
+        </ion-card-title>
+        <!-- <p class="card-content" [innerHTML]="post.excerpt.rendered"></p> -->
+      </ion-card-content>
+      <!-- <button class="read-more-btn" ion-button color="navbar" (click)="openModal(post)">Read more</button> -->
+    </ion-card>
+  </div>
 
-  <hr />
+  <ng-template #showEmptyPost>
+    <div class="no-post-div">
+      <ion-icon class="no-post-icon" name="ios-search-outline"></ion-icon>
+      <h2 class="no-post">No post found.</h2>
+      <P class="no-post-text">Looks like this categry has no post yet, you can go back and try again later</P>
+    </div>
+  </ng-template>
 
-  <ion-card padding class="post_card" *ngFor="let post of cat_post" (click)="openModal(post)">
-    <img class="slide-img" [src]="post.better_featured_image.media_details.sizes.medium_large.source_url" />
-    <ion-card-content>
-      <ion-card-title>
-        <h2 class="card-title" [innerHTML]="post.title.rendered"></h2>
-      </ion-card-title>
-      <!-- <p class="card-content" [innerHTML]="post.excerpt.rendered"></p> -->
-    </ion-card-content>
-    <!-- <button class="read-more-btn" ion-button color="navbar" (click)="openModal(post)">Read more</button> -->
-  </ion-card>
-
-  <ion-card class="modal-card">
+  <!-- <ion-card class="modal-card">
     <ion-grid class="row-grid">
-      <ion-row>
-        <ion-col>
-          <h2 class="follow-us">FOLLOW US</h2>
-        </ion-col>
-      </ion-row>
       <ion-row class="row-icons">
-        <ion-col>
+        <ion-col (click)="goToFacebook()">
           <ion-icon name="logo-facebook" color="primary"></ion-icon>
         </ion-col>
         <ion-col>
-          <ion-icon name="logo-twitter" color="primary"></ion-icon>
+          <ion-icon (click)="goToTwitter()" name="logo-twitter" color="primary"></ion-icon>
         </ion-col>
         <ion-col>
-          <ion-icon name="logo-instagram" color="primary"></ion-icon>
-        </ion-col>
-        <ion-col>
-          <ion-icon name="logo-linkedin" color="primary"></ion-icon>
+          <ion-icon (click)="goToInstagram()" name="logo-instagram" color="primary"></ion-icon>
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ion-card>
+  </ion-card> -->
 
 </ion-content>

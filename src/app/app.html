@@ -3,7 +3,7 @@
     <ion-toolbar color="logo">
       <ion-title></ion-title>
       <div class="side-menu-logo">
-        <img class="logo_img" src="assets/img/logo.jpg">
+        <img class="logo_img" src="assets/img/icon.png">
       </div>
     </ion-toolbar>
   </ion-header>
@@ -17,17 +17,16 @@
           <ion-toggle [(ngModel)]="language" (ionChange)="changeLangAR()"></ion-toggle>
         </ion-item>
       </ion-list>
-      <ion-list-header class="list_header">
-        CATEGORIES
-      </ion-list-header>
+      <ion-item no-lines class="cat-item" (click)="gotoHome()">
+        <p>HOME</p>
+      </ion-item>
       <ion-item no-lines class="cat-item" menuClose ion-item *ngFor="let cat of categories" (click)="navToCat(cat)">
         <p [innerHTML]="cat.name"></p>
       </ion-item>
       <hr>
       <ion-item no-lines class="cat-item" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        <p>{{p.title}}</p>
+        <h6 class="sub">{{p.title}}</h6>
       </ion-item>
-
     </div>
 
     <ng-template #changeLang>
@@ -36,19 +35,35 @@
           <ion-label>Arabic</ion-label>
           <ion-toggle [(ngModel)]="language" (ionChange)="changeLangEN()" menuClose></ion-toggle>
         </ion-item>
-        <ion-list-header class="list_header">
-          الاقسام
-        </ion-list-header>
-        <ion-item no-lines class="cat-item ion-list-ar" menuClose ion-item *ngFor="let cat of categories_ar" (click)="navToCatAR(cat)">
+        <ion-item no-lines class="cat-item ion-list-ar" (click)="gotoHomeAR()">
+          <P>الصفحة الرئيسية</P>
+        </ion-item>
+        <ion-item no-lines class="cat-item ion-list-ar sub" menuClose ion-item *ngFor="let cat of categories_ar" (click)="navToCatAR(cat)">
           <p [innerHTML]="cat.name"></p>
         </ion-item>
         <hr>
-        <ion-item no-lines class="cat-item ion-list-ar" menuClose ion-item *ngFor="let p of pages_ar" (click)="openPage(p)">
-          <p>{{p.title}}</p>
+        <ion-item no-lines class="cat-item ion-list-ar sub" menuClose ion-item *ngFor="let p of pages_ar" (click)="openPage(p)">
+          <h6 class="sub">{{p.title}}</h6>
         </ion-item>
 
       </ion-list>
     </ng-template>
+
+    <ion-card class="modal-card">
+    <ion-grid class="row-grid">
+      <ion-row class="row-icons">
+        <ion-col (click)="goToFacebook()">
+          <ion-icon name="logo-facebook" color="primary"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-icon (click)="goToTwitter()" name="logo-twitter" color="primary"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-icon (click)="goToInstagram()" name="logo-instagram" color="primary"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 
   </ion-content>
 

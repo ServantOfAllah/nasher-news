@@ -21,6 +21,7 @@ import { TermsArPage } from '../pages/terms-ar/terms-ar';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SplashScreen,
     HttpModule, 
     Network,
+    InAppBrowser,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

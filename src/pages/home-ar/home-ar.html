@@ -1,9 +1,9 @@
 <ion-header>
     <ion-navbar color="navbar">
       <ion-buttons end>
-        <button ion-button (click)="changetoEN()">
+        <!-- <button ion-button (click)="changetoEN()">
           <ion-label>EN</ion-label>
-        </button>
+        </button> -->
       </ion-buttons>
       <ion-buttons end>
         <button ion-button menuToggle>
@@ -25,7 +25,7 @@
   
       <ion-card no-padding class="card-slide">
         <ion-slides #imgSlides loop="true" pager>
-          <ion-slide *ngFor="let image of all_post">
+          <ion-slide *ngFor="let image of all_post" (click)='navToPost(image)'>
             <img [src]="image.better_featured_image.media_details.sizes.medium.source_url" />
             <p class="card-content slide-title" [innerHTML]="image.title.rendered"></p>
           </ion-slide>

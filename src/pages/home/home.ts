@@ -15,13 +15,13 @@ export class HomePage {
   @ViewChild('imgSlides') imgSlide: Slides;
 
   categories = [];
-  url: string = 'http://nashernews.staging.wpengine.com/wp-json/wp/v2/categories'; // retrieve all categories
-  all_postUrl: string = 'http://nashernews.staging.wpengine.com/wp-json/wp/v2/posts'; // retrieve all posts
-  cat_postUrl: string = "http://nashernews.staging.wpengine.com/wp-json/wp/v2/posts?categories=" // retrieve specific posts under categories
+  url: string = 'http://nasher-news.com/wp-json/wp/v2/categories'; // retrieve all categories
+  all_postUrl: string = 'http://nasher-news.com/wp-json/wp/v2/posts'; // retrieve all posts
+  cat_postUrl: string = "http://nasher-news.com/wp-json/wp/v2/posts?categories=" // retrieve specific posts under categories
 
-  url_ar: string = 'http://nashernews.staging.wpengine.com/wp-json/wp/v2/categories/?lang=ar';  // retrieve all categories arabic
-  all_postUrl_ar: string = 'http://nashernews.staging.wpengine.com/wp-json/wp/v2/posts/?lang=ar'; // retrieve all posts arabic
-  cat_postUrl_ar: string = "http://nashernews.staging.wpengine.com/wp-json/wp/v2/posts?categories=&lang=ar"  // retrieve specific posts under categories arabic
+  url_ar: string = 'http://nasher-news.com/wp-json/wp/v2/categories/?lang=ar';  // retrieve all categories arabic
+  all_postUrl_ar: string = 'http://nasher-news.com/wp-json/wp/v2/posts/?lang=ar'; // retrieve all posts arabic
+  cat_postUrl_ar: string = "http://nasher-news.com/wp-json/wp/v2/posts?categories=&lang=ar"  // retrieve specific posts under categories arabic
 
   cat_post_id: any;
   cat_post = [];
@@ -113,6 +113,10 @@ export class HomePage {
   navToCat(thisCat) {
     const pushing = this.navCtrl.push('CategoriesPage', { "cat": thisCat });
     console.log("idparams", pushing)
+  }
+  navToPost(imageSlide){
+    const full_desc_slide = this.navCtrl.push('FullPostPage', {"posts": imageSlide});
+    console.log("all post from cat page: ", full_desc_slide);
   }
 
   //refresher method

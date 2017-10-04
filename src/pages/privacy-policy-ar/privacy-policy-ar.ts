@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 export class PrivacyPolicyArPage {
 
   privacyData = [];
-  privacyUrl: string = 'http://nashernews.staging.wpengine.com/wp-json/wp/v2/pages/187';
+  privacyUrl: string = 'http://nasher-news.com/wp-json/wp/v2/pages/192?lang=ar';
 
   constructor(private http: Http, public navCtrl: NavController, public navParams: NavParams) {
 

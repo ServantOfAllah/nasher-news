@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 export class AboutPage {
 
   aboutData = [];
-  aboutUrl: string = 'http://nashernews.staging.wpengine.com/wp-json/wp/v2/pages/185';
+  aboutUrl: string = 'http://nasher-news.com/wp-json/wp/v2/pages/185';
 
   constructor(private http: Http, public navCtrl: NavController, public navParams: NavParams) {
     this.http.get(this.aboutUrl).map(res => res.json()).subscribe(data =>{

@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { HomePage } from '../pages/home/home';
 import { AboutPage } from '../pages/about/about';
@@ -29,28 +30,26 @@ export class MyApp {
   categories = [];
   categories_ar = [];
 
-  url: string = 'http://nashernews.staging.wpengine.com/wp-json/wp/v2/categories';
-  url_ar: string = 'http://nashernews.staging.wpengine.com/wp-json/wp/v2/categories/?lang=ar';
+  url: string = 'http://nasher-news.com/wp-json/wp/v2/categories';
+  url_ar: string = 'http://nasher-news.com/wp-json/wp/v2/categories/?lang=ar';
 
   pages: Array<{title: string, component: any}>;
   pages_ar: Array<{title: string, component: any}>;
 
   isLangToggle = false;
 
-  constructor(private http: Http, translate: TranslateService, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(private iab: InAppBrowser, private http: Http, translate: TranslateService, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     translate.setDefaultLang('en');
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
       { title: 'About Nasher', component: AboutPage },
       { title: 'Privacy Policy', component: PrivacyPolicyPage },
       { title: 'Terms & Conditions', component: TermsPage }
     ];
 
     this.pages_ar = [
-      { title: 'الصفحة الرئيسية', component: HomeArPage },
       { title: 'عن ناشر', component: AboutArPage },
       { title: 'سياسة الخصوصية', component: PrivacyPolicyArPage },
       { title: 'شروط الأستخدام', component: TermsArPage }
@@ -84,6 +83,13 @@ export class MyApp {
       console.log("value of language ",this.isLangToggle);
   }
 
+  gotoHome(){
+    this.nav.setRoot(HomePage);
+  }
+  gotoHomeAR(){
+    this.nav.setRoot(HomeArPage);
+  }
+
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -101,6 +107,16 @@ export class MyApp {
   //navigate to arabic categories page
   navToCatAR(thisCat) {
     this.nav.push( 'CategoriesArPage', { "cat": thisCat });
+  }
+
+  goToFacebook(){
+    this.iab.create('https://www.facebook.com/Nasher_News-1168066179967546/?ref=bookmarks', '_blank');
+  }
+  goToTwitter(){
+    this.iab.create('https://twitter.com/Nasher_News', '_blank');
+  }
+  goToInstagram(){
+    this.iab.create('https://www.instagram.com/nasher_news/', '_blank');
   }
 
   openPage(page) {

@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 export class TermsArPage {
 
   termsData = [];
-  termsUrl: string = 'http://nashernews.staging.wpengine.com/wp-json/wp/v2/pages/189?lang=ar';
+  termsUrl: string = 'http://nasher-news.com/wp-json/wp/v2/pages/193?lang=ar';
 
   constructor(private http: Http, public navCtrl: NavController, public navParams: NavParams) {
 

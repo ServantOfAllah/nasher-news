@@ -1,18 +1,42 @@
-<!--
-  Generated template for the AboutArPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
+    <ion-navbar color="navbar">
+      <ion-buttons end>
+        <button ion-button menuToggle>
+          <ion-icon name="menu" right></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>About Nasher</ion-title>
+    </ion-navbar>
+  </ion-header>
 
-  <ion-navbar>
-    <ion-title>about-ar</ion-title>
-  </ion-navbar>
 
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+  <ion-content>
+      <ion-card class="about-content-card" *ngFor="let about of aboutData">
+        <ion-card-header>
+          <h2 class="about-title" [innerHTML] = "about.title.rendered" ></h2>
+        </ion-card-header>
+        <ion-card-content>
+          <p class="about-content" [innerHTML] = "about.content.rendered"></p>
+        </ion-card-content>
+      </ion-card>
+  
+    <ion-card class="modal-card">
+      <ion-grid class="row-grid">
+        <ion-row class="row-icons">
+          <ion-col>
+            <ion-icon name="logo-facebook" color="primary"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="logo-twitter" color="primary"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="logo-instagram" color="primary"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="logo-linkedin" color="primary"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  
+  </ion-content>

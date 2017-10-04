@@ -11,7 +11,7 @@ import {Http } from '@angular/http';
 export class FullPostPage {
 
   posts = [];
-  getAuthor: string = 'http://nashernews.staging.wpengine.com/wp-json/wp/v2/users/';
+  getAuthor: string = 'http://nasher-news.com/wp-json/wp/v2/users/';
   authorData = [];
 
   constructor(private http: Http, private view: ViewController, public navCtrl: NavController, public navParams: NavParams) {

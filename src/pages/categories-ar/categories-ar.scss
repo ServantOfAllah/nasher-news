@@ -59,7 +59,10 @@ page-categories-ar {
             margin-bottom: 0;
         }
         .modal-card{
-            //margin-bottom: 0;
+            position: fixed;
+            bottom: 0;
+            width: 100% !important;
+            margin: 0;
         }
         .follow-us{
             color: #fff;
@@ -92,6 +95,27 @@ page-categories-ar {
         }
         .title{
             color: #fff;
+        }
+        .no-post-div{
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 50%;
+            text-align: center;
+            padding: 0 25px;
+        }
+        .no-post{
+            font-weight: bold;
+            color: #000;
+        }
+        .no-post-text{
+            line-height: 1.5;
+        }
+        .no-post-icon{
+            font-size: 100px;
         }
 
 }
